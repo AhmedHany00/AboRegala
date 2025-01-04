@@ -4,94 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AboRegala</title>
-    <!-- Font Awesome -->
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="preload" href="https://www.aboregela.com/wp-content/themes/aborgela/assets/fonts/arkan.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://www.aboregela.com/wp-content/themes/aborgela/assets/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://www.aboregela.com/wp-content/themes/aborgela/assets/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Styles -->
     <style>
-        /* Dropdown Menu Styles */
-        .dropdown {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .dropdown-btn {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .dropdown-btn i {
-            font-size: 24px;
-            color: #4CAF50;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 50px;
-            background-color: #f9f9f9;
-            min-width: 250px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 10000;
-            left: calc(100% - 250px);
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            white-space: nowrap;
-            text-align: right;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown-btn:focus + .dropdown-content,
-        .dropdown-content:hover {
-            display: block;
-        }
-
-        .dropdown-btn:focus {
-            background-color: #3e8e41;
-        }
-
-        .blue-background {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .right-sign {
-            font-size: 24px;
-            color: white;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        .custom-text-section {
-            font-size: 20px;
-            line-height: 2;
-            padding: 20px;
-        }
-
-        .custom-text-section p {
-            margin: 10px 0;
-            font-weight: bold;
-            display: inline-flex;
-            justify-content: center;
+        /* Header Styles */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-logo img {
+            max-height: 50px;
+        }
+
+        .header-info {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .header-info .icon {
+            margin-right: 10px;
+            font-size: 20px;
+            color: #007bff;
+        }
+
+        .header-info .info {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .header-info .title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .header-info .desc {
+            color: #666;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-icons a {
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .mobile-menu {
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+            }
         }
 
         /* Sticky Buttons (Phone and WhatsApp) */
@@ -121,83 +105,84 @@
             color: white;
         }
 
-        .custom-box-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            background-color: white;
-        }
-
-        .custom-box {
-            flex: 0 1 45%;
-            max-width: 350px;
-            text-align: center;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .custom-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .custom-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .custom-box p {
-            padding: 10px;
-            font-size: 16px;
-            color: #333;
-        }
     </style>
 </head>
 <body>
-    <!-- Dropdown Menu -->
-    <div class="dropdown">
-        <button class="dropdown-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="https://www.aboregela.com/" target="_blank">الرئيسية</a>
-            <a href="https://www.aboregela.com/services/" target="_blank">خدماتنا</a>
-            <a href="https://www.aboregela.com/blog/" target="_blank">المدونة</a>
-            <a href="https://www.aboregela.com/contact-us/" target="_blank">اتصل بنا</a>
+
+    <!-- Header Section -->
+    <header id="header" class="header" aria-label="Site header">
+        <div class="container header-container">
+            <!-- Site Logo -->
+            <a class="site-logo" href="https://www.aboregela.com/">
+                <img src="https://www.aboregela.com/wp-content/uploads/2022/11/cropped-Aboregela-copy.png" alt="aboregela hospital">
+            </a>
+            
+            <!-- Header Information (Phone and Address) -->
+            <div class="header-info">
+                <span class="icon"><i class="fas fa-phone"></i></span>
+                <div class="info">
+                    <span class="title">تحدث معنا بسرية تامة</span>
+                    <span class="desc">+20 123 456 789</span>
+                </div>
+            </div>
+
+            <div class="header-info">
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <div class="info">
+                    <span class="title">عنوان المستشفى</span>
+                    <span class="desc">مصر - القاهرة</span>
+                </div>
+            </div>
+
+            <!-- Header Icons (Contact options) -->
+            <div class="header-icons">
+                <a href="tel:+201234567890" class="phone"><i class="fas fa-phone"></i> اتصل بنا</a>
+                <a href="https://api.whatsapp.com/send?phone=201234567890&text=أريد الاستفسار" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <span class="mobile-menu"><i class="fa fa-bars"></i></span>
         </div>
-    </div>
+    </header>
 
-    <!-- First Text Section -->
-    <div class="custom-text-section blue-background">
-        <p><span class="right-sign">✔</span><strong>اعراض انسحاب بدون ألم</strong></p>
-        <p><span class="right-sign">✔</span><strong>تأهيل سلوكي ونفسي</strong></p>
-        <p><span class="right-sign">✔</span><strong>استشارات مجانيه ٢٤ ساعه</strong></p>
-    </div>
-
-    <!-- Custom Boxes -->
-    <div class="custom-box-container">
-        <a href="#" class="custom-box" target="_blank">
-            <img src="https://via.placeholder.com/350x150" alt="Box 1">
-            <p>علاج ادمان الكريستال ميث في المنزل</p>
-        </a>
-        <a href="#" class="custom-box" target="_blank">
-            <img src="https://via.placeholder.com/350x150" alt="Box 2">
-            <p>مدة بقاء الكريستال ميث في الجسم</p>
-        </a>
-    </div>
-
-    <!-- Sticky Buttons -->
+    <!-- Sticky Buttons (Phone and WhatsApp) -->
     <a href="tel:+201234567890" class="sticky-btn phone">
         <i class="fas fa-phone"></i>
     </a>
     <a href="https://api.whatsapp.com/send?phone=201234567890&text=أريد الاستفسار" target="_blank" class="sticky-btn whatsapp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Body Content (Start of the Page) -->
+    <main>
+        <!-- Example Content -->
+        <section id="intro">
+            <div class="container">
+                <h1>مرحبًا بك في مستشفى أبو رجيلة</h1>
+                <p>نحن هنا لخدمتك. للمزيد من الاستفسارات حول العلاجات والخدمات، تواصل معنا عبر الهاتف أو الواتساب.</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>خدماتنا</h2>
+                <ul>
+                    <li>الخدمات الطبية</li>
+                    <li>الاستشارات</li>
+                    <li>الأبحاث الطبية</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>تواصل معنا</h2>
+                <p>إذا كنت بحاجة إلى المزيد من المعلومات، لا تتردد في التواصل معنا. نحن هنا للمساعدة.</p>
+                <a href="tel:+201234567890" class="phone-contact">اتصل بنا</a>
+                <a href="https://api.whatsapp.com/send?phone=201234567890&text=أريد الاستفسار" target="_blank" class="whatsapp-contact">تواصل عبر واتساب</a>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
