@@ -1,48 +1,196 @@
-<?php
-/**
- * Template Name: Custom Page
- */
-get_header();
-?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AboRegala</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <style>
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 9999;
+        }
 
-<!-- Dropdown Menu - Aligned to the Top Right (Clickable) -->
-<div class="dropdown">
-   <button class="dropdown-btn">
-      <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
-   </button>
-   <div class="dropdown-content">
-      <a href="https://www.aboregela.com/" target="_blank">الرئيسية</a>
-      <a href="https://www.aboregela.com/services/" target="_blank">الخدمات</a>
-      <a href="https://www.aboregela.com/blog/" target="_blank">المدونة</a>
-      <a href="https://www.aboregela.com/contact-us/" target="_blank">تواصل معنا</a>
-   </div>
-</div>
+        .dropdown-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
 
-<!-- First Text Section with Blue Background -->
-<div class="custom-text-section blue-background">
-   <p><span class="right-sign">✔</span><strong>اعراض انسحاب بدون ألم</strong></p>
-   <p><span class="right-sign">✔</span><strong>تأهيل سلوكي ونفسي</strong></p>
-   <p><span class="right-sign">✔</span><strong>استشارات مجانيه ٢٤ ساعه</strong></p>
-</div>
+        .dropdown-btn i {
+            font-size: 24px;
+            color: #4CAF50;
+        }
 
-<div class="custom-box-container">
-   <!-- Box 1 -->
-   <a href="https://www.aboregela.com/%d8%b9%d9%84%d8%a7%d8%ac-%d8%a7%d8%af%d9%85%d8%a7%d9%86-%d8%a7%d9%84%d9%83%d8%b1%d9%8a%d8%b3%d8%aa%d8%a7%d9%84-%d9%85%d9%8a%d8%ab-%d9%81%d9%8a-%d8%a7%d9%84%d9%85%d9%86%d8%b2%d9%84/" class="custom-box" target="_blank">
-      <img src="https://www.aboregela.com/wp-content/uploads/2024/06/Treatment-of-crystal-meth-addiction-at-home.webp" alt="Crystal Meth Treatment">
-      <p>علاج ادمان الكريستال ميث في المنزل</p>
-   </a>
-   <!-- Box 2 -->
-   <a href="https://www.aboregela.com/%D9%85%D8%AF%D8%A9-%D8%A8%D9%82%D8%A7%D8%A1-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D8%B3%D8%AA%D8%A7%D9%84-%D9%85%D9%8A%D8%AB-%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D8%B3%D9%85" class="custom-box" target="_blank">
-      <img src="https://www.aboregela.com/wp-content/uploads/2024/06/How-long-does-crystal-meth-last.webp" alt="Crystal Meth Duration In Body">
-      <p>مدة بقاء الكريستال ميث في الجسم: 6 عوامل تقلل مدة البقاء</p>
-   </a>
-</div>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 50px;
+            background-color: #f9f9f9;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            left: calc(100% - 250px);
+        }
 
-<!-- Sticky Buttons: Phone Call (Left) & WhatsApp (Right) -->
-<a href="tel:+2<?php the_field ('option_phone', 'option'); ?>" class="sticky-btn phone">
-   <i class="fas fa-phone"></i>
-</a>
-<a href="https://api.whatsapp.com/send?phone=2<?php the_field ('option_whatsapp', 'option'); ?>&amp;text=أريد الاستفسار عن <?php the_title(); ?>" target="_blank" class="sticky-btn whatsapp">
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: right;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-btn:focus + .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+
+        .blue-background {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .right-sign {
+            font-size: 24px;
+            color: white;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .custom-text-section {
+            font-size: 20px;
+            line-height: 2;
+            padding: 20px;
+        }
+
+        .custom-text-section p {
+            margin: 10px 0;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .sticky-btn {
+            position: fixed;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 30px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        .sticky-btn.phone {
+            bottom: 20px;
+            left: 20px;
+            background-color: #007bff;
+        }
+
+        .sticky-btn.whatsapp {
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+        }
+
+        .sticky-btn i {
+            color: white;
+        }
+
+        .custom-box-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .custom-box {
+            flex: 0 1 45%;
+            max-width: 350px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .custom-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .custom-box p {
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dropdown Menu -->
+    <div class="dropdown">
+        <button class="dropdown-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="https://www.aboregela.com/" target="_blank">الرئيسية</a>
+            <a href="https://www.aboregela.com/services/" target="_blank">خدماتنا</a>
+            <a href="https://www.aboregela.com/blog/" target="_blank">المدونة</a>
+            <a href="https://www.aboregela.com/contact-us/" target="_blank">اتصل بنا</a>
+        </div>
+    </div>
+
+    <!-- First Text Section -->
+    <div class="custom-text-section blue-background">
+        <p><span class="right-sign">✔</span><strong>اعراض انسحاب بدون ألم</strong></p>
+        <p><span class="right-sign">✔</span><strong>تأهيل سلوكي ونفسي</strong></p>
+        <p><span class="right-sign">✔</span><strong>استشارات مجانيه ٢٤ ساعه</strong></p>
+    </div>
+
+    <!-- Custom Boxes -->
+    <div class="custom-box-container">
+        <a href="#" class="custom-box" target="_blank">
+            <img src="https://via.placeholder.com/350x150" alt="Box 1">
+            <p>علاج ادمان الكريستال ميث في المنزل</p>
+        </a>
+        <a href="#" class="custom-box" target="_blank">
+            <img src="https://via.placeholder.com/350x150" alt="Box 2">
+            <p>مدة بقاء الكريستال ميث في الجسم</p>
+        </a>
+    </div>
+
+    <!-- Sticky Buttons -->
+    <a href="tel:+201234567890" class="sticky-btn phone">
+        <i class="fas fa-phone"></i>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=201234567890&text=أريد الاستفسار" target="_blank" class="sticky-btn whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
+whatsapp">
    <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -210,4 +358,4 @@ get_header();
    color: #333;
 }
    
-</style>
+</style> why 2 styles section
