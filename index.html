@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Page</title>
+    <title>AboRegala</title>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Styles -->
@@ -44,7 +44,11 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            width: 100%;
+            white-space: nowrap;
             text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .dropdown-content a:hover {
@@ -54,6 +58,10 @@
         .dropdown-btn:focus + .dropdown-content,
         .dropdown-content:hover {
             display: block;
+        }
+
+        .dropdown-btn:focus {
+            background-color: #3e8e41;
         }
 
         .blue-background {
@@ -81,9 +89,12 @@
             margin: 10px 0;
             font-weight: bold;
             display: inline-flex;
+            justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
+        /* Sticky Buttons (Phone and WhatsApp) */
         .sticky-btn {
             position: fixed;
             padding: 15px;
@@ -190,172 +201,3 @@
     </a>
 </body>
 </html>
-whatsapp">
-   <i class="fab fa-whatsapp"></i>
-</a>
-
-<?php get_footer(); ?>
-
-<!-- Styles -->
-<style>
-   /* Dropdown Menu Styles */
-   .dropdown {
-      position: absolute;
-      top: 10px; /* Adjust the distance from the top */
-      right: 20px; /* Adjust the distance from the right */
-      z-index: 9999; /* Ensures the dropdown is above everything */
-   }
-
-   /* Modify the dropdown button to show only the hamburger icon */
-   .dropdown-btn {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-   }
-
-   .dropdown-btn i {
-      font-size: 24px; /* Adjust the size of the hamburger icon */
-      color: #4CAF50; /* Adjust the color as needed */
-   }
-
-   /* Style the dropdown content to ensure words fit properly */
-   .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 50px; /* Adjust position if needed */
-      left: 0;
-      background-color: #f9f9f9;
-      min-width: 250px;
-      max-width: 100%;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 10000;
-   }
-   
-   .dropdown-content {
-   left: calc(100% - 250px); /* Ensure it doesn't overflow on the right */
-   right: auto; /* Override any existing right property */
-   } 
-
-   .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      width: 100%; /* Ensure the width is 100% of the parent */
-      white-space: nowrap; /* Prevent text wrapping */
-      text-align: right; /* Right-align the Arabic text */
-      overflow: hidden; /* Hide any overflow text */
-      text-overflow: ellipsis; /* Display ellipsis for overflowing text */
-   }
-
-   .dropdown-content a:hover {
-      background-color: #f1f1f1;
-   }
-
-   /* Show the dropdown when the button is clicked */
-   .dropdown-btn:focus + .dropdown-content,
-   .dropdown-content:hover {
-      display: block;
-   }
-
-   .dropdown-btn:focus {
-      background-color: #3e8e41;
-   }
-   .blue-background {
-   background-color: #007bff;
-   color: white;
-   padding: 20px;
-   text-align: right; /* Right-aligns text for Arabic */
-   direction: rtl; /* Ensures the content flows right-to-left */
-}
-
-/* Right Tick Sign Styling */
-.right-sign {
-   font-size: 24px; /* Adjust the size of the tick sign */
-   color: white; /* White color for the tick sign */
-   margin-left: 10px; /* Adds space between the tick and text */
-   vertical-align: middle; /* Aligns the tick sign in the center vertically */
-}
-
-/* Text Section Styles */
-.custom-text-section {
-   font-size: 20px;
-   line-height: 2;
-   padding: 20px;
-}
-
-.custom-text-section p {
-   margin: 10px 0;
-   font-weight: bold;
-   display: inline-flex; /* Align the text and tick on the same line */
-   justify-content: center; /* Centers the content horizontally */
-   align-items: center; /* Aligns text and tick vertically */
-   width: 100%; /* Ensures it takes the full width */
-}
-
-   /* Sticky Buttons (Phone and WhatsApp) */
-   .sticky-btn {
-      position: fixed;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 30px;
-      color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      z-index: 9999;
-   }
-
-   .sticky-btn.phone {
-      bottom: 20px;
-      left: 20px;
-      background-color: #007bff;
-   }
-
-   .sticky-btn.whatsapp {
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-   }
-
-   .sticky-btn i {
-      color: white;
-   }
-   
-   .custom-box-container {
-   display: flex;
-   justify-content: center; /* Center the boxes horizontally */
-   gap: 10px; /* Reduce spacing between boxes */
-   padding: 20px;
-   background-color: white; /* White background */
-}
-
-.custom-box {
-   flex: 0 1 45%; /* Adjust width to 45% of the container */
-   max-width: 350px; /* Add a maximum width */
-   text-align: center;
-   text-decoration: none;
-   border: 1px solid #ddd;
-   border-radius: 8px;
-   overflow: hidden;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-box:hover {
-   transform: scale(1.05); /* Slightly enlarge on hover */
-   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.custom-box img {
-   width: 100%; /* Make the image fit the box width */
-   height: auto; /* Maintain aspect ratio */
-   display: block;
-}
-
-.custom-box p {
-   padding: 10px;
-   font-size: 16px; /* Text size between the earlier options */
-   color: #333;
-}
-   
-</style>
