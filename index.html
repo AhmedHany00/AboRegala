@@ -8,54 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Styles -->
     <style>
-        /* Dropdown Menu Styles */
-        .dropdown {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .dropdown-btn {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .dropdown-btn i {
-            font-size: 24px;
-            color: #4CAF50;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 50px;
-            background-color: #f9f9f9;
-            min-width: 250px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 10000;
-            left: calc(100% - 250px);
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: right;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown-btn:focus + .dropdown-content,
-        .dropdown-content:hover {
-            display: block;
-        }
-
+      
         .blue-background {
             background-color: #007bff;
             color: white;
@@ -160,17 +113,6 @@
             <a href="https://www.aboregela.com/contact-us/">اتصل بنا</a>
         </nav>
     </header>
-    <!-- Dropdown Menu -->
-    <div class="dropdown">
-        <button class="dropdown-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="https://www.aboregela.com/" target="_blank">الرئيسية</a>
-            <a href="https://www.aboregela.com/services/" target="_blank">خدماتنا</a>
-            <a href="https://www.aboregela.com/blog/" target="_blank">المدونة</a>
-            <a href="https://www.aboregela.com/contact-us/" target="_blank">اتصل بنا</a>
-        </div>
     </div>
 
     <!-- First Text Section -->
@@ -220,71 +162,7 @@ whatsapp">
 
 <!-- Styles -->
 <style>
-   /* Dropdown Menu Styles */
-   .dropdown {
-      position: absolute;
-      top: 10px; /* Adjust the distance from the top */
-      right: 20px; /* Adjust the distance from the right */
-      z-index: 9999; /* Ensures the dropdown is above everything */
-   }
-
-   /* Modify the dropdown button to show only the hamburger icon */
-   .dropdown-btn {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-   }
-
-   .dropdown-btn i {
-      font-size: 24px; /* Adjust the size of the hamburger icon */
-      color: #4CAF50; /* Adjust the color as needed */
-   }
-
-   /* Style the dropdown content to ensure words fit properly */
-   .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 50px; /* Adjust position if needed */
-      left: 0;
-      background-color: #f9f9f9;
-      min-width: 250px;
-      max-width: 100%;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 10000;
-   }
-   
-   .dropdown-content {
-   left: calc(100% - 250px); /* Ensure it doesn't overflow on the right */
-   right: auto; /* Override any existing right property */
-   } 
-
-   .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      width: 100%; /* Ensure the width is 100% of the parent */
-      white-space: nowrap; /* Prevent text wrapping */
-      text-align: right; /* Right-align the Arabic text */
-      overflow: hidden; /* Hide any overflow text */
-      text-overflow: ellipsis; /* Display ellipsis for overflowing text */
-   }
-
-   .dropdown-content a:hover {
-      background-color: #f1f1f1;
-   }
-
-   /* Show the dropdown when the button is clicked */
-   .dropdown-btn:focus + .dropdown-content,
-   .dropdown-content:hover {
-      display: block;
-   }
-
-   .dropdown-btn:focus {
-      background-color: #3e8e41;
-   }
-   .blue-background {
+      .blue-background {
    background-color: #007bff;
    color: white;
    padding: 20px;
